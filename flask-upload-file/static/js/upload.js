@@ -151,7 +151,7 @@
             swf: 'resource/Uploader.swf',
             chunked: true,
             chunkSize: 512 * 1024,
-            server: 'http://127.0.0.1:9999/upload',
+            server: 'http://172.16.10.67:9999/upload',
             /*server: '../server/fileupload.php',*/
             method:'POST',
             // runtimeOrder: 'flash',
