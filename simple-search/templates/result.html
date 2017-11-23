@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果</title>
+</head>
+<body>
+<p align="center">{{word}}搜索结果</p>
+<div style="width: 1000px;height: auto;margin: auto auto">
+<hr>
+{% for d in data %}
+      <a href="{{d.magnet}}"> {{d.magnet_name}}</a>
+        <p>电影大小:{{d.magnet_size}}  收录时间{{d.magnet_date}}</p>
+      <hr>
+{% endfor %}
+<br>
+    <p>超锅电影快搜资源来自互联网 本站不存储任何资源</p>
+</div>
+
+</body>
+</html>
