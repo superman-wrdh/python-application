@@ -109,7 +109,7 @@ def delete_empty_dir(dir):
             os.rmdir(dir)
             print("remove the empty dir: {}".format(dir))
     else:
-        print("Please start your performance!")     # 请开始你的表演
+        print("Please start your performance!")
 
 
 if __name__ == "__main__":
