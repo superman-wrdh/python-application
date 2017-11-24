@@ -7,9 +7,7 @@ import argparse
 
 import requests
 from bs4 import BeautifulSoup
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 
 HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',

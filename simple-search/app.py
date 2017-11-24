@@ -19,7 +19,8 @@ def search():
     if w:
         d = ts(w, 10, 0)
         print("-------")
-        print(d)
+        print("word", w)
+        print("result", d)
         print("-------")
         return render_template("result.html", data=d, word=w)
     else:
@@ -27,7 +28,7 @@ def search():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=9999, debug=True)
+    app.run(host="0.0.0.0", port=3010)
 
 
 
