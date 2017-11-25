@@ -16,12 +16,8 @@ def index():
 @app.route("/search", methods=["POST"])
 def search():
     w = request.form.get("w", type=str, default=None)
-    if w:
+    if w or len(w) == 0:
         d = ts(w, 10, 0)
-        print("-------")
-        print("word", w)
-        print("result", d)
-        print("-------")
         return render_template("result.html", data=d, word=w)
     else:
         return render_template('index.html')

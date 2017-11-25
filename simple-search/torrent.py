@@ -3,8 +3,6 @@ import math
 import csv
 import json
 from pprint import pprint
-import argparse
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -138,12 +136,3 @@ def _output(magnets, path):
                     fout.write(json.dumps(magnets))
             except Exception:
                 print("Failed to save the file!")
-
-
-# if __name__ == "__main__":
-#     # 命令行操作方式
-#     # command_line_runner()
-#     data = search("变形金刚", 10, 0)
-#     #_print(data, False)
-#     for i in data:
-#         pprint(i)
