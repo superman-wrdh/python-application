@@ -29,18 +29,22 @@ def page_get_page(page_url):
         bs = BeautifulSoup(
             requests.get(page_url, headers=HEADERS, timeout=10).text,
             'lxml').find('div', attrs={"class": "ptitle"})
-        title = bs.h1.text
-        # start = int(bs.span.text)
-        end = int(bs.em.text)
-        left = page_url[0:page_url.rindex(".")]
-        pages = [left+"_"+str(i)+".html" for i in range(2, end+1)]
-        if len(pages) == 0:
-            pages = None
-        pages.append(page_url)
-        return {
-            "title": title,
-            "pages": pages
-        }
+        if bs is not None:
+            title = bs.h1.text
+            # start = int(bs.span.text)
+            end = int(bs.em.text)
+            left = page_url[0:page_url.rindex(".")]
+            pages = [left+"_"+str(i)+".html" for i in range(2, end+1)]
+            if len(pages) == 0:
+                pages = None
+            pages.append(page_url)
+            return {
+                "title": title,
+                "pages": pages
+            }
+        else:
+            print("empty url", page_url)
+            return None
     except Exception as e:
         print(e)
 
@@ -114,6 +118,7 @@ def main():
                  for cnt in range(39895, 128407)]
     print("Please wait for second ...")
     for page_url in page_urls:
+        print("now will to %s" % page_url)
         d = DownLoadThread(page_url)
         d.start()
         time.sleep(5)
@@ -124,6 +129,7 @@ class DownLoadThread(Thread):
             Thread.__init__(self)
             self.url = url
             print("thread init ")
+            print("will download url %s" % url)
 
         def run(self):
             print("thread start download ")
