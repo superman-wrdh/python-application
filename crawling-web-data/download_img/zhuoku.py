@@ -63,9 +63,35 @@ def delete_empty_dir(dir):
 
 # http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm
 # http://www.zhuoku.com/zhuomianbizhi/star/index-109.htm
+def get_entrance_all_page():
+    base_url = "http://www.zhuoku.com/zhuomianbizhi/star/"
+    page_url = "http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm"
+    try:
+        # 获取所有页码
+        ops = BeautifulSoup(
+            requests.get(page_url, headers=HEADERS, timeout=10).text,
+            'lxml').findAll('option')
+        for i in ops:
+            print(i.attrs["value"])
+    except Exception as e:
+        print(e)
+
+
+def page_entrance():
+    page_url = "http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm"
+    try:
+        bs = BeautifulSoup(
+            requests.get(page_url, headers=HEADERS, timeout=10).text,
+            'lxml').findAll('div', attrs={"class": "bizhiin"})
+        for i in bs:
+            print(i.a.attrs["href"])
+    except Exception as e:
+        print(e)
+
+
 def main():
     pass
 
 
 if __name__ == '__main__':
-    pass
+    page_entrance()
