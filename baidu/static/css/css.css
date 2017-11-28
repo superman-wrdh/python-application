@@ -1,0 +1,101 @@
+/* CSS Document */
+body,html{
+	background:url(../img/TB2.D7mdJFopuFjSZFHXXbSlXXa-407700539.jpg);
+	min-height:100%;/*当页面的高度不足一屏幕的时，我们让其最小也得是一屏幕*/
+	background-size: cover;/*是指背景图片大小:cover按照当前图片最合适的比例铺满整个图片*/
+	widows:100%;}
+.nav ul{
+	float:right;
+	margin-right:15px;/*让整个列表区域靠右，设置了浮动，但是子元素一旦设置了浮动，父元素的高度就不能被子元素的
+	高度引用，这种情况下我们需要清楚浮动的问题，给父元素增加一个叫clear的样式类名即可*/}
+.nav ul li{
+	float:left;
+	}
+.nav ul li a{
+	display:block;
+	padding:0 10px;
+	line-height:36px;
+	color:#FFF;
+	font-size:15px;
+	text-decoration:underline;}
+.search1{
+	width:644px;
+	margin:50px auto;
+}
+.search1 .imglog{
+	width:244px;
+	height:105px;
+	margin:0 auto 10px;
+}
+.search1 .imglog img{
+	display:block;
+	width:100%;
+	height:100%;
+}
+.search1 .txtingput{
+	width:488px;
+	height:38px;
+	line-height:36px;
+	background:rgba(255,255,255,0.5);
+	border:1px solid;
+	font-size:16px;
+	color:white;
+}
+.search1 .txtbutton{
+	width:104px;
+	height:40px;
+	font-size:16px;
+	background:#38f;
+	color:#FFF;
+	line-height:40px;
+	border:none;
+	font-size:16px;
+	
+}
+.search1 .txtbutton:hover{
+	background:#930;
+}
+.imglist1{
+	margin:50px auto 0;
+	width:860px;
+	background:rgba(255,255,255.0.8);
+	padding-bottom:10px;
+}
+.imglist1 ul li{
+	float:left;
+	margin:10px 0 0 10px;
+}
+.imglist1 ul li a{
+	display:block;
+	width:160px;
+	height:140px;
+	position:relative;
+	overflow:hidden;
+}
+.imglist1 il li img{
+	padding:10px;
+	display:block;
+	width:100%;
+	height:100%;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-ms-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+}
+.imglist1 ul li a:hover img{
+	transform:scale(1.5);
+	-webkit-transform:scale(1.5);
+	-moz-transform:scale(1.5);
+	-ms-transform:scale(1.5);
+	transform:scale(1.5);
+}
+.imglist1 ul li a span{
+	position:absolute;
+	height:24px;
+	width:100%;
+	color:white;
+	line-height:24px;
+	font-size:15px;
+	bottom:0;
+}
