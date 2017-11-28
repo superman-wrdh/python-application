@@ -83,9 +83,9 @@ def get_entrance_all_page():
 
 
 # step three
-def page_item():
-    base = "http://www.zhuoku.com"
-    page_url = "http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm"
+def page_item(page_url, base):
+    # base = "http://www.zhuoku.com"
+    # page_url = "http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm"
     result = []
     try:
         bs = BeautifulSoup(
@@ -100,11 +100,28 @@ def page_item():
     return result
 
 
+# step three
+def get_step_two_page(url):
+    base = url[0:url.rindex("/")+1]
+    result = []
+    try:
+        bs = BeautifulSoup(
+            requests.get(url, headers=HEADERS, timeout=10).text,
+            'lxml').findAll("option")
+        tmp = []
+        for i in bs:
+            tmp.append(str(i.attrs["value"]))
+        result = [base+i for i in tmp]
+    except Exception as e:
+        print(e)
+    return result
+
+
 def main():
     pass
 
 
 if __name__ == '__main__':
-    for i in page_item():
+    for i in get_step_two_page("http://www.zhuoku.com/zhuomianbizhi/star-starcn/20171125213622.htm"):
         print(i)
 
