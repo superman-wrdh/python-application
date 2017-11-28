@@ -63,30 +63,41 @@ def delete_empty_dir(dir):
 
 # http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm
 # http://www.zhuoku.com/zhuomianbizhi/star/index-109.htm
+# step one
 def get_entrance_all_page():
     base_url = "http://www.zhuoku.com/zhuomianbizhi/star/"
     page_url = "http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm"
+    url = []
     try:
         # 获取所有页码
         ops = BeautifulSoup(
             requests.get(page_url, headers=HEADERS, timeout=10).text,
             'lxml').findAll('option')
+        tmp = []
         for i in ops:
-            print(i.attrs["value"])
+            tmp.append(str(i.attrs["value"]))
+        url = [base_url+u for u in tmp]
     except Exception as e:
         print(e)
+    return url
 
 
-def page_entrance():
+# step three
+def page_item():
+    base = "http://www.zhuoku.com"
     page_url = "http://www.zhuoku.com/zhuomianbizhi/star/index-1.htm"
+    result = []
     try:
         bs = BeautifulSoup(
             requests.get(page_url, headers=HEADERS, timeout=10).text,
             'lxml').findAll('div', attrs={"class": "bizhiin"})
+        tmp = []
         for i in bs:
-            print(i.a.attrs["href"])
+            tmp.append(i.a.attrs["href"])
+        result = [base+i for i in tmp]
     except Exception as e:
         print(e)
+    return result
 
 
 def main():
@@ -94,4 +105,6 @@ def main():
 
 
 if __name__ == '__main__':
-    page_entrance()
+    for i in page_item():
+        print(i)
+
