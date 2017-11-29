@@ -117,6 +117,11 @@ def get_step_two_page(url):
     return result
 
 
+# step four
+def find_large_img():
+    pass
+
+
 def main():
     pass
 
