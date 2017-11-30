@@ -122,6 +122,7 @@ def find_large_img():
     pass
 
 
+# remove repetition
 def main():
     pass
 
