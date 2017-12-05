@@ -38,6 +38,7 @@ def get_mp3(mid):
 
 
 if __name__ == '__main__':
+    # 0.0.0.0 all ip can browse
     app.run(host="0.0.0.0", port=9999, debug=True)
 
 
