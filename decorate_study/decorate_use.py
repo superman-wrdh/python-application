@@ -44,5 +44,5 @@ def fibonacci_use_decorate(n):
 
 if __name__ == '__main__':
     # fibonacci(50) 短时间内计算不出来
-    print(fibonacci_use_cache(50))
-    print(fibonacci_use_decorate(50))
+    print(fibonacci_use_cache(100))
+    print(fibonacci_use_decorate(100))
