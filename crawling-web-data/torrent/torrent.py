@@ -66,7 +66,7 @@ def run(kw, num, sort_by):
     :param num: 资源数量
     :param sort_by: 排序方式。0：按磁力时间排序，1：按磁力大小排序
     """
-    print("Crawling data for you.....")
+    print("searching.....")
     domain = "http://bt2.bt87.cc"
 
     # 确保 num 有效
@@ -182,10 +182,12 @@ def _output(magnets, path):
                 print("Failed to save the file!")
 
 
-if __name__ == "__main__":
-    # 命令行操作方式
+ # 命令行操作方式
     # command_line_runner()
-    data = run("变形金刚", 20, 0)
+
+
+if __name__ == "__main__":
+    data = run("寻梦环游记", 20, 0)
     _print(data, False)
-    _output(data, "变形金刚.csv")
-    _output(data, "变形金刚.json")
+    _output(data, "寻梦环游记.csv")
+    _output(data, "寻梦环游记.json")

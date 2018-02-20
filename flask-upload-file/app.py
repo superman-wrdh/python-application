@@ -29,6 +29,14 @@ def get_img(imgid):
     return resp
 
 
+@app.route("/video/<video_id>")
+def get_video(video_id):
+    basepath = os.path.dirname(__file__)
+    image = open(os.path.join("L:\电影", str(video_id)), "rb")
+    resp = Response(image, mimetype="video/x-msvideo")
+    return resp
+
+
 @app.route("/mp3/<mid>")
 def get_mp3(mid):
     basepath = os.path.dirname(__file__)
