@@ -19,8 +19,9 @@ def get_md5(file_full_path):
     return md5_str
 
 
-def scan(path):
-    record_file_name = str(path).replace("/", "-").replace("\\", "-").replace(":", "-")+".txt"
+def scan(path, record_file_name=None):
+    if record_file_name is None:
+        record_file_name = str(path).replace("/", "-").replace("\\", "-").replace(":", "-")+".txt"
     file = open(record_file_name, "w", encoding="utf-8")
     # 记录MD5
 
