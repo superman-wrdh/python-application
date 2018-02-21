@@ -68,7 +68,9 @@ def scan(path, record_file_name=None):
             })
             md5_set.add(items[2])
         else:
+            file.close()
             break
+
     md5_map = {key: [] for key in md5_set}
     from pprint import pprint
     {md5: md5_map[md5].append(i) for md5 in md5_map for i in content if md5 == i["md5"]}
