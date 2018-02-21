@@ -41,9 +41,16 @@ def scan(path, record_file_name=None):
                         print(count, ":", full_path, ":", md5)
                         count += 1
         else:
-            print("end")
-
-    read_directory(path)
+            print("read directory finished")
+    if isinstance(path, str):
+        print("str")
+        read_directory(path)
+    elif isinstance(path, list):
+        print("list ")
+        [read_directory(p) for p in path]
+    else:
+        print("error")
+        raise "Parameter types are not supported"
     file.close()
 
     # 根据记录文件MD5算重复文件
@@ -71,9 +78,9 @@ def scan(path, record_file_name=None):
     for key, value in md5_map.items():
         if len(value) > 1:
             pprint(value)
-            file_re.write(str(index)+"\t\t"+str(len(value))+"\t\t"+key+"\t\t")
+            file_re.write(str(index)+"\t\t"+str(len(value))+"\t\t"+key+"\n")
             for i in value:
-                file_re.write(i["path"]+"\t\t\t")
+                file_re.write("\t    \t    "+i["path"]+"\n")
             file_re.write("\n")
             index += 1
 
@@ -83,5 +90,7 @@ def scan(path, record_file_name=None):
 
 if __name__ == '__main__':
     # 递归读取改文件夹下面文件 并根据MD5找出重复文件
-    scan("D:\测试文件夹")
+    # 用法 第二个参数可选
+    # scan("D:\测试文件夹") scan(["D:\测试文件夹", "D:\测试文件夹"])
+    scan(["D:\测试文件夹", "D:\测试文件2"])
 
