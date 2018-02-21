@@ -3,6 +3,7 @@ from flask import Flask, request, Response
 from flask import render_template, redirect, url_for,jsonify
 from flask_cors import *
 from baidu import search as ts
+from qihu import search as tq
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
@@ -16,8 +17,10 @@ def index():
 def search():
     w = request.form.get("w", type=str, default=None)
     if w or len(w) == 0:
-        d = ts(w)
-        return render_template("result.html", data=d, word=w)
+        d_baidu = ts(w)
+        d_360 = tq(w)
+        d_baidu.extend(d_360)
+        return render_template("result.html", data=d_baidu, word=w)
     else:
         return render_template('index.html')
 
