@@ -48,5 +48,11 @@ def make_qr(s):
     return img
 
 
+def base64_str():
+    import base64
+    bs = base64.b64encode("I am string".encode(encoding="utf-8"))
+    print(bs)
+
+
 if __name__ == '__main__':
-    simple_qr2()
+    base64_str()
