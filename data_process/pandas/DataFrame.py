@@ -7,7 +7,7 @@ import webbrowser
 
 def fun1():
     """
-    clipboard
+    clipboard data
 
         Feb 2018	Feb 2017	Change	Programming Language	Ratings	Change
     1	1		Java	14.988%	-1.69%
