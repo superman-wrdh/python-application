@@ -2,7 +2,7 @@
 import sqlalchemy.ext.declarative
 
 
-engine = sqlalchemy.create_engine("mysql+pymysql://root:hc123456@127.0.0.1:3306/sqlalchemy_study", encoding="utf8", echo=False)
+engine = sqlalchemy.create_engine("mysql+pymysql://root:hc123456@106.15.224.136:3308/sqlalchemy_study", encoding="utf8", echo=False)
 BaseModel = sqlalchemy.ext.declarative.declarative_base()
 
 
