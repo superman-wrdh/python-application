@@ -28,5 +28,80 @@ def fun1():
     print(type(df))
 
 
+def api_description():
+    data = [1, 2, 3]
+    index = ['a', 'b', 'c']
+    s = pd.Series(data=data, index=index)
+    # s
+    """
+        a    1
+        b    2
+        c    3
+        dtype: int64
+    """
+    s[1]  # scalar, 返回一个值
+    # 2
+
+    s[0:2]  # 范围，左闭右开，返回Series切片
+    """
+    a 1
+
+    b 2
+
+    dtype: int64
+    """
+
+    s[[0, 2]]  # 列表，返回Series切片
+    """
+    a 1
+
+    c 3
+
+    dtype: int64
+    """
+
+    mask = [False, True, False]  # mask，类似于列表，只是长度必须和Series相同，返回Series切片
+    s[mask]
+    """
+    b 2
+
+    dtype: int64
+    """
+
+    s.loc['b']  # 单索引，返回一个值 2
+
+    s.loc['a':'c']  # 范围，注意：左闭右闭，返回Series切片
+    """
+    a 1
+    b 2
+    c 3
+    dtype: int64
+    """
+
+    s.loc[['a', 'c']]  # 列表，返回Series切片
+    """
+    a 1
+    c 3
+    dtype: int64
+    """
+
+    mask = [False, True, False]  # mask，和iloc[]效果等同，返回Series切片
+    s.loc[mask]
+    """
+    b 2
+    dtype: int64
+    """
+
+    s.iloc[1]  # scalar, 返回一个值
+    # Out[5]:
+    # 2
+
+    s.iloc[0:2]  # 范围，左闭右开，返回Series切片
+    # Out[6]:
+    # a 1
+    # b 2
+    # dtype: int64
+
+
 if __name__ == '__main__':
     fun1()
