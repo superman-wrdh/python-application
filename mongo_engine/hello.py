@@ -1,5 +1,4 @@
 import mongoengine
-
 MONGODB_PARAMS = {
     'service': {
         'name': 'trans',
@@ -8,7 +7,7 @@ MONGODB_PARAMS = {
     }
 }
 
-mongoengine.register_connection(alias='mongo_trans', **MONGODB_PARAMS.get('service'))
+mongoengine.register_connection(alias='trans', **MONGODB_PARAMS.get('service'))
 
 
 class UserInfo(mongoengine.Document):
@@ -16,12 +15,29 @@ class UserInfo(mongoengine.Document):
     user_name = mongoengine.StringField()
 
     meta = {
-        'db_alias': 'mongo_trans',
+        'db_alias': 'trans',
         'collection': 'user_info',
         'indexes': [
             'user_id'
         ],
     }
+
+
+class Page(mongoengine.DynamicDocument):
+    title = mongoengine.StringField()
+
+    meta = {
+        'db_alias': 'trans',
+        'collection': 'page'
+    }
+
+
+def page_add():
+    page = Page(
+        title=""
+    )
+    page.tage = ["1","2"]
+    page.save()
 
 
 def add():
@@ -33,4 +49,4 @@ def add():
 
 
 if __name__ == '__main__':
-    add()
+    page_add()
