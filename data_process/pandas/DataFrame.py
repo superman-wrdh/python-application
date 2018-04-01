@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 import numpy as np
 import pandas as pd
-from pandas import Series,DataFrame
+from pandas import Series, DataFrame
 import webbrowser
 
 
@@ -103,5 +103,36 @@ def api_description():
     # dtype: int64
 
 
+def data_frame_api():
+    # 创建dataframe
+
+    # 二维数组
+    array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    df = pd.DataFrame(data=array, columns=['A', 'B', 'C'], index=None)
+
+    """
+       A  B  C
+    0  1  2  3
+    1  4  5  6
+    2  7  8  9
+    """
+    # 一维数组
+    arr = [{"A": 1, "B": 2, "C": 3}, {"A": 1, "B": 2, "C": 3}, {"A": 1, "B": 2, "C": 3}]
+    pd.DataFrame(data=arr, columns=['A', 'B', 'C'], index=None)
+
+    # 从字典
+    kw = {"A": [1, 4, 7], "B": [2, 5, 6], "C": [3, 6, 9]}
+    df = pd.DataFrame(data=array, columns=['A', 'B', 'C'], index=None)
+
+    # 取数据相关
+
+    df.values
+
+    for index, row in df.iterrows():
+        # row 为series
+        print(index, row)
+    df.index
+
+
 if __name__ == '__main__':
-    fun1()
+    data_frame_api()
