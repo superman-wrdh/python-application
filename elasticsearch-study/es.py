@@ -7,7 +7,7 @@ _es = Elasticsearch([{'host': '192.168.199.139', 'port': 9200}])
 
 
 def read_date_from_csv():
-    df = pd.read_csv(r"D:\data\2000W开房数据\2000W\1-200W.csv")
+    df = pd.read_csv(r"D:\data\2000W\2000W\1-200W.csv")
     return df
 
 
