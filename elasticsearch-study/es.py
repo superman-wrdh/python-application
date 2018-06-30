@@ -52,21 +52,33 @@ def col_format():
     """
 
 
+def get_max_size(arr):
+    m = len(arr[0])
+    for i in range(len(arr)):
+        if m < len(arr[i]):
+            m = len(arr[i])
+    return m
+
+
 def main():
-    init_index()
+    # init_index()
     df = read_date_from_csv()
     df = df.where(df.notnull(), None)
-    df = df.loc[140672:]
-    count = 0
-    insert_start = datetime.now()
-    print('start insert index')
-    for _, rows in df.iterrows():
-        todict = rows.to_dict()
-        add(todict)
-        count = count + 1
-        if count % 10000 == 0:
-            print("insert data rows ", count, " take times ", ((datetime.now()) - insert_start).seconds)
-    print('finished', count)
+    columns = df.columns
+    columns = list(columns)
+    for i in columns:
+        print(i, ' 长度', len(max([str(i) for i in df[i].tolist()])))
+    # df = df.loc[140672:]
+    # count = 0
+    # insert_start = datetime.now()
+    # print('start insert index')
+    # for _, rows in df.iterrows():
+    #     todict = rows.to_dict()
+    #     add(todict)
+    #     count = count + 1
+    #     if count % 10000 == 0:
+    #         print("insert data rows ", count, " take times ", ((datetime.now()) - insert_start).seconds)
+    # print('finished', count)
 
 
 if __name__ == '__main__':

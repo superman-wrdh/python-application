@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查一查</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+<div class="searchbox">
+    <div class="mod_select">
+        <div class="select_box">
+            <span class="select_txt">库容</span>
+            <span class="select-icon"></span>
+            <ul class="option" style="width: 100px">
+                <li>200w</li>
+                <li>400w</li>
+                <li>600w</li>
+                <li>800w</li>
+                <li>1000w</li>
+                <li>1200w</li>
+                <li>1400w</li>
+                <li>1600w</li>
+                <li>1800w</li>
+                <li>2000w</li>
+            </ul>
+        </div>
+    </div>
+    <form action="/search" method="POST">
+        <input type="hidden" name="" value="选择" id="select_value">
+        <input type="text" name="keyword" id="searchPlaceholder" class="import" placeholder="请输入关键字">
+        <input type="button" value="搜   索" class="btn-search" id="sub">
+    </form>
+</div>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script>
+    $(function () {
+        $(".select_box").click(function (event) {
+            event.stopPropagation();
+            $(this).find(".option").toggle();
+            $(this).parent().siblings().find(".option").hide();
+        });
+        $(document).click(function (event) {
+            var eo = $(event.target);
+            if ($(".select_box").is(":visible") && eo.attr("class") != "option" && !eo.parent(".option").length)
+                $('.option').hide();
+        });
+        $(".option li").click(function () {
+            var check_value = $(this).text();
+            $(this).parent().siblings(".select_txt").text(check_value);
+            var se = $("#select_value").val()
+            console.log(se)
+            $('#searchPlaceholder').prop('placeholder', check_value);
+
+        });
+
+        $("#sub").click(function () {
+            //alert("查询")
+            var check_value = $(this).text();
+            var keyword = $('#searchPlaceholder').val()
+            var form = $("form")
+            {#form.attr({"keyword": keyword, "item": keyword})#}
+            {#console.log({"item": keyword, "item": check_value})#}
+            form.submit()
+        })
+    })
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+
+</div>
+</body>
+</html>

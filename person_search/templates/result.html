@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结果</title>
+</head>
+<body>
+<p align="center">关键词: <span style="color: red">{{ keyword }}</span> 搜索到 <em style="color: red">{{ count }}</em> 条记录</p>
+<div style="width: 1000px;height: auto;margin: auto auto">
+    <hr>
+    {% for d in data %}
+        <p>
+            <a href="/detail/{{ d.id }}"> {{ d.Name }} : {{ d.CtfId }}</a>
+        </p>
+    {% endfor %}
+    <br>
+    <p>资源来自互联网 本站不存储任何资源</p>
+</div>
+</body>
+</html>

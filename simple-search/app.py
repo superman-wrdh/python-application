@@ -1,12 +1,13 @@
 # -*- encoding: utf-8 -*-
 from flask import Flask, request, Response
-from flask import render_template, redirect, url_for,jsonify
+from flask import render_template, redirect, url_for, jsonify
 from flask_cors import *
 import os
 from torrent import search as ts
+
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-4
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -25,6 +26,3 @@ def search():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=3012)
-
-
-
