@@ -1,11 +1,6 @@
-import re
-import os
 import time
-import threading
 from multiprocessing import Pool, cpu_count
 import random
-import requests
-from bs4 import BeautifulSoup
 from datetime import datetime
 
 
@@ -17,9 +12,9 @@ def product(size=10):
 
 def consumer(p):
     pid = random.randint(1000, 9999)
-    print('\n ', pid, '开始消费')
+    print('\n', pid, '开始消费')
     time.sleep(2)
-    print('消费', p, '成功', '\n')
+    print(pid, '消费', p, '成功', '\n')
     time.sleep(2)
 
 
