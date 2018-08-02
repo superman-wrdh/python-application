@@ -17,7 +17,7 @@ HEADERS = {
     'Referer': 'http://www.win4000.com'
 }
 
-DIR_PATH = r"D:\win4000"      # 下载图片保存路径
+DIR_PATH = "/root/disk/win4000/img"      # 下载图片保存路径
 
 
 def get_img_name(img_url):
@@ -115,7 +115,7 @@ def main():
     http://www.win4000.com/wallpaper_detail_128403.html
     """
     page_urls = ['http://www.win4000.com/wallpaper_detail_{cnt}.html'.format(cnt=cnt)
-                 for cnt in range(39895, 128407)]
+                 for cnt in range(49295, 128407)]
     print("Please wait for second ...")
     for page_url in page_urls:
         print("now will to %s" % page_url)
