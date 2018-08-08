@@ -15,6 +15,23 @@ def created_data():
     random = np.random.random((3, 3))
 
 
+def shape_operation():
+    # 数组形状改变
+    random = np.random.random(10)
+    reshape = random.reshape(5, 2)
+    transpose = reshape.transpose()
+    ravel = reshape.ravel()
+
+
+def numpy_concat():
+    # 拼接
+    A = np.ones((3, 3))
+    B = np.zeros((3, 3))
+    vstack = np.vstack((A, B))
+    hstack = np.hstack((A, B))
+    pass
+
+
 def numpy_calculate():
     A = np.full((3, 3), 5)
     B = np.full((3, 3), 2)
