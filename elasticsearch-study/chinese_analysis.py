@@ -66,7 +66,7 @@ def chinese_analysis():
         }
     }
     result = es.search(index='news', doc_type='politics', body=dsl)
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    print(result)
 
 
 if __name__ == '__main__':
