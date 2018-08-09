@@ -66,8 +66,10 @@ def chinese_analysis():
         }
     }
     result = es.search(index='news', doc_type='politics', body=dsl)
-    print(result)
+    pprint(result)
 
 
 if __name__ == '__main__':
-    index_data()
+    from pprint import pprint
+
+    pprint(chinese_analysis())
