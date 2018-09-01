@@ -46,9 +46,9 @@ def qrcode_base64(code):
     resp = Response(byte_io, mimetype="image/png")
     v = ""
     output = BytesIO()
-    base64.encode(byte_io, output)
+    b = base64.encode(byte_io, output)
     return jsonify({
-        "base64": str(output)
+        "base64": str(b)
     })
 
 

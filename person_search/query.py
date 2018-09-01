@@ -5,7 +5,7 @@ table = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
 
 
 def engine_base():
-    _engine = create_engine("",
+    _engine = create_engine("mysql+pymysql://root:wsw@2018@47.98.146.17:8612/user_info",
                             connect_args={"charset": "utf8"})
     return _engine
 
