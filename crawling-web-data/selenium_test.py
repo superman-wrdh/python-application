@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 browser = webdriver.Chrome()
+# http://chromedriver.storage.googleapis.com/index.html
 try:
     browser.get("https://www.baidu.com")
     input = browser.find_element_by_id("kw")
