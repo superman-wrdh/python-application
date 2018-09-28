@@ -1,8 +1,6 @@
 # pip3 install jieba
 import jieba
 
-import jieba
-
 
 def fun1():
     seg_list = jieba.cut("我来到北京清华大学", cut_all=True)
@@ -40,3 +38,4 @@ if __name__ == '__main__':
     fun2()
     fun3()
     fun4()
+    username = 1
