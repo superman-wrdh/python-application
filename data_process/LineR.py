@@ -2,7 +2,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
-import numpy as np  # 数据数据为两列数据x和y，有表头
+import numpy as np
 
 if __name__ == '__main__':
     df = pd.DataFrame(data={"X": [1, 2, 3, 4],
