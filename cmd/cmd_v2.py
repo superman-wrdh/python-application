@@ -20,10 +20,11 @@ def cmd(command):
         cr = r.decode(encoding)
     except Exception as e:
         # print(e)
-        cr = "error"
+        cr = "execute [{}]error"
     return cr
 
 
 if __name__ == '__main__':
-    result = cmd("ipconfig")
+    #result = cmd("ipconfig")
+    result = cmd("dir")
     print(result)
