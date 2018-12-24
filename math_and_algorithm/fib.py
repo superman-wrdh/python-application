@@ -24,10 +24,19 @@ def fib_n_v2(n):
         return content[1]
 
 
+def fib_v3(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+
 if __name__ == '__main__':
-    for i in [10, 100, 1000, 10000, 100000, 1000000]:
-        s = time.clock()
+    for i in [1000000]:
+        s = time.time()
         # fib_n(i)
-        fib_n_v2(i)
-        e = time.clock()
-        print("n is {}, time {}".format(i, e - s), "\n")
+        # x = fib_n_v2(i)
+        x = fib_v3(i)
+        e = time.time()
+        print(x)
+        print("\n n is {}, time {}".format(i, e - s), "\n")
