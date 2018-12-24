@@ -5,15 +5,24 @@
     <title>搜索结果</title>
 </head>
 <body>
-<p align="center">关键词: <span style="color: red">{{word}}</span> 搜索结果</p>
+<p align="center">关键词: <span style="color: red">{{ word }}</span> 搜索结果</p>
+<p align="center">超锅快搜资源来自互联网 本站不存储任何资源</p>
 <div style="width: 1000px;height: auto;margin: auto auto">
-<hr>
-{% for d in data %}
-      <a href="{{d.source}}"> {{d.title}}</a>
-      <hr>
-{% endfor %}
-<br>
-    <p>超锅快搜资源来自互联网 本站不存储任何资源</p>
+    <hr>
+    {% for d in data %}
+        <a href="{{ d.source }}"> {{ d.title }}</a>
+        <hr>
+    {% endfor %}
+    <br>
+    <p>与<span style="color: red">{{ word }} </span> 相关人物</p>
+
+    {% for p in person %}
+        <p>
+            <a href="/detail/{{ p.id }}"> {{ p.Name }} : {{ p.Address }}</a>
+        </p>
+    {% endfor %}
+
+    <p>超锅快搜资源来自互联网 本站不存储任何资源,若搜索结果侵犯你的权益，请联系超锅锅</p>
 </div>
 
 </body>
