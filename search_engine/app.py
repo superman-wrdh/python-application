@@ -4,7 +4,7 @@ from flask import render_template, redirect, url_for, jsonify
 from flask_cors import CORS
 from baidu import search as ts
 from qihu import search as tq
-from es import search_by_name,get_by_id
+from es import search_by_name, get_by_id
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -19,18 +19,25 @@ def index():
 def search():
     w = request.form.get("w", type=str, default=None)
     content = []
+    person = None
     if w or len(w) == 0:
         try:
             d_baidu = ts(w)
             content.extend(d_baidu)
         except Exception as e:
-            pass
+            print("baidu ERROR", "*" * 100)
+            print(e)
         try:
             d_360 = tq(w)
             content.extend(d_360)
         except Exception as e:
-            pass
-        person = search_by_name(w)
+            print("qihu ERROR", "*" * 100)
+            print(e)
+        try:
+            person = search_by_name(w)
+        except Exception as e:
+            print("ES ERROR", "*" * 100)
+            print(e)
         return render_template("result.html", data=content, word=w, person=person)
     else:
         return render_template('index.html')

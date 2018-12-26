@@ -1,11 +1,37 @@
 import pandas as pd
 from elasticsearch import Elasticsearch
+import platform
+
+"""
+    if platform.system() == "Windows":
+        host = '192.168.199.179'
+        port = 9200
+    elif platform.system() == "Linux":
+        host = '127.0.0.1'
+        port = 9200
+    else:
+        host = '66super.com'
+        port = 10200
+
+"""
+
+
+def init():
+    if platform.system() == "Windows":
+        host = '192.168.199.179'
+        port = 9200
+    elif platform.system() == "Linux":
+        host = '127.0.0.1'
+        port = 9200
+    else:
+        host = '66super.com'
+        port = 10200
+    _es = Elasticsearch([{'host': host, 'port': port}])
+    return _es
 
 
 def search_by_name(name):
-    host = '127.0.0.1'
-    port = 10200
-    _es = Elasticsearch([{'host': host, 'port': port}])
+    _es = init()
     dsl = {
         "query": {
             "bool": {
@@ -34,9 +60,7 @@ def search_by_name(name):
 
 
 def get_by_id(id):
-    host = '127.0.0.1'
-    port = 10200
-    _es = Elasticsearch([{'host': host, 'port': port}])
+    _es = init()
     dsl = {
 
         "query": {
