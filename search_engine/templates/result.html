@@ -14,13 +14,15 @@
         <hr>
     {% endfor %}
     <br>
-    <p>与<span style="color: red">{{ word }} </span> 相关人物</p>
 
-    {% for p in person %}
-        <p>
-            <a href="/detail/{{ p.id }}"> {{ p.Name }} : {{ p.Address }}</a>
-        </p>
-    {% endfor %}
+    {% if person %}
+        <p>与<span style="color: red">{{ word }} </span> 相关人物</p>
+        {% for p in person %}
+            <p>
+                <a href="/detail/{{ p.id }}"> {{ p.Name }} : {{ p.Address }}</a>
+            </p>
+        {% endfor %}
+    {% endif %}
 
     <p>超锅快搜资源来自互联网 本站不存储任何资源,若搜索结果侵犯你的权益，请联系超锅锅</p>
 </div>
