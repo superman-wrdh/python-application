@@ -61,12 +61,13 @@ class Pagination:
         return df
 
     def __call__(self, *args, **kwargs):
-        import pandas as pd
         self._check()
 
         count = self.get_count()
 
-        start_page, end_page = 1, int(count / int(self.page_size)) + 1
+        # 分页设置 不能整除加1 能整除不加1
+        start_page, end_page = 1, int(count / int(self.page_size)) if int(
+            count % int(self.page_size)) == 0 and count != 0 else int(count / int(self.page_size)) + 1
         if self.page < start_page:
             self.page = 1
         elif self.page > end_page:
