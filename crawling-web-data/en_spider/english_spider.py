@@ -1,7 +1,7 @@
 # encoding:utf8
 import requests
 from bs4 import BeautifulSoup
-import re
+
 
 HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
