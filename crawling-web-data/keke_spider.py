@@ -266,7 +266,7 @@ class KeKeEntry:
     def get_item_page(self):
         items = self.get_entry_item()
         for item in items:
-            urls = self.get_page_article_list(items)
+            urls = self.get_page_article_list(item)
             self.urls.extend(urls)
 
     def get_page_article_list(self, page):
