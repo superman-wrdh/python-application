@@ -25,6 +25,7 @@ def cmd(command):
 
 
 if __name__ == '__main__':
-    #result = cmd("ipconfig")
+    # result = cmd("ipconfig")
     result = cmd("dir")
+    result = cmd("ipconfig")
     print(result)
