@@ -17,7 +17,7 @@ wight, height = im1.size
 
 # 画图
 draw = ImageDraw.Draw(im1)
-text = "今日鸡汤:感谢那些伤害你的人,他们让你变得更强大"
+text = "今日鸡汤:努力不一定成功，但是不努力一定很轻松"
 date = "----- 尼古拉斯.超人" + str(datetime.now().date())
 # text = text.encode("utf8").decode("utf8")
 # draw.text((160, 0), "2019-5-19", (255, 0, 0), font=font)  # 设置文字位置/内容/颜色/字体
