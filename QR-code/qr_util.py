@@ -54,5 +54,5 @@ def base64_str():
     print(bs)
 
 
-if __name__ == '__main__':
-    base64_str()
+# if __name__ == '__main__':
+#     base64_str()
