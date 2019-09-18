@@ -232,7 +232,7 @@ class EN24Spider:
             ss = BeautifulSoup(html, 'lxml').find_all("script")
             sl = [s.text for s in ss]
             s7 = sl[7]
-            mp3_url = s7[s7.rindex("https:"):s7.rindex("mp3")+3]
+            mp3_url = s7[s7.rindex("https:"):s7.rindex("mp3") + 3]
             self._data.update(
                 {"mp3": mp3_url}
             )
@@ -247,12 +247,12 @@ class EN24Spider:
             zh_article = BeautifulSoup(html, 'lxml').find("div", attrs={"id": "tab_7"})
             en_data = {
                 "images": None,
-                #"article": en_article.text,
+                # "article": en_article.text,
                 "article_split": [i.text for i in en_article.find_all("p")]
             }
             zh_data = {
                 "images": None,
-                #"article": zh_article.text,
+                # "article": zh_article.text,
                 "article_split": [i.text for i in zh_article.find_all("p")]
             }
 
@@ -312,6 +312,7 @@ class KeKeSpiderProxy:
             return data
         else:
             return None
+
 
 """
 CCN NEWS
