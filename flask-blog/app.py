@@ -21,7 +21,7 @@ def auth(role=None):
             token = request.headers.get("Authorization")
             user_obj = allow_user.get(token)
             if user_obj is None:
-                d = {"message": "forbid"}
+                d = {"message": "forbidden"}
                 return Response(json.dumps(d), status=403, mimetype="application/json")
             user_role = user_obj.get("role")
             allow = False
