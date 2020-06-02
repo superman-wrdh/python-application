@@ -32,7 +32,7 @@ world
 ```
 
 ```
-注意调用一个协程并不是简单的知行
+注意调用一个协程并不是简单的执行
 运行一个协程 asyncio提供了3种方式
 ```
 
@@ -106,7 +106,7 @@ finished at 17:14:34
 * Coroutines
 
 ```
-Python coroutines 是awaitables 因此可以被 awaited 被其他协程
+Python coroutines 是awaitables 因此可以被被其他协程 awaited 
 ```
 ```python
 import asyncio
@@ -251,6 +251,49 @@ asyncio.run(main())
 # Expected output:
 #
 #     timeout!
+```
+
+
+
+## task
+
+### task停止 
+
+```python
+# 下面代码展示如何打断一个运行的协程
+async def cancel_me():
+    print('cancel_me(): before sleep')
+
+    try:
+        # Wait for 1 hour
+        await asyncio.sleep(3600)
+    except asyncio.CancelledError:
+        print('cancel_me(): cancel sleep')
+        raise
+    finally:
+        print('cancel_me(): after sleep')
+
+async def main():
+    # Create a "cancel_me" Task
+    task = asyncio.create_task(cancel_me())
+
+    # Wait for 1 second
+    await asyncio.sleep(1)
+
+    task.cancel()
+    try:
+        await task
+    except asyncio.CancelledError:
+        print("main(): cancel_me is cancelled now")
+
+asyncio.run(main())
+
+# Expected output:
+#
+#     cancel_me(): before sleep
+#     cancel_me(): cancel sleep
+#     cancel_me(): after sleep
+#     main(): cancel_me is cancelled now
 ```
 
 
