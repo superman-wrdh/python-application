@@ -1,10 +1,9 @@
 import asyncio
 import time
-from datetime import datetime
 
 
 async def calculate_task(a, b, t):
-    print("start calculate at {}".format(datetime.now()))
+    print("start calculate at {}".format(time.time()))
     await asyncio.sleep(t)
     print("finished")
     return a + b
@@ -14,7 +13,7 @@ def done_callback(*args):
     print("finished callback")
     r = args[0].result()
     print("result is {}".format(r))
-    print("now is {}".format(datetime.now()))
+    print("now is {}".format(time.time()))
 
 
 async def main():
